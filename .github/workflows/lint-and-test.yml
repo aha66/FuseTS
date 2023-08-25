@@ -19,13 +19,13 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade 'pip==23.0.1'
+          python -m pip install --upgrade 'pip==23.0.0'
           # pip install flake8 pytest
           # Workaround for vam.whittaker installation issue https://github.com/WFP-VAM/vam.whittaker/issues/4
           pip install numpy==1.23.5 cython
           pip --version
           pip freeze
-          pip install vam.whittaker>=2.0.2
+          pip install --use-pep517 vam.whittaker>=2.0.2
           pip install .[dev]
       # - name: Lint with flake8
       #   run: |
