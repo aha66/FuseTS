@@ -17,15 +17,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - name: Install pip
         run: |
           python -m pip install --upgrade pip
-          # pip install flake8 pytest
-          # Workaround for vam.whittaker installation issue https://github.com/WFP-VAM/vam.whittaker/issues/4
-          pip install numpy==1.23.5 cython wheel setuptools
           pip --version
+      - name: Install numpy ...
+        run: |
+          pip install numpy==1.23.5 cython wheel setuptools
           pip freeze
+      - name: Install vam.whittaker>=2.0.2
+        run: |
           pip -v -v -v install vam.whittaker>=2.0.2
+      - name: Install fusets
+        run: |
           pip install .[dev]
       # - name: Lint with flake8
       #   run: |
