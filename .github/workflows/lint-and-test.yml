@@ -25,7 +25,7 @@ jobs:
           pip install numpy==1.23.5 cython
           pip --version
           pip freeze
-          pip install --use-pep517 vam.whittaker>=2.0.2
+          pip -v -v -v install --use-pep517 vam.whittaker>=2.0.2
           pip install .[dev]
       # - name: Lint with flake8
       #   run: |
