@@ -28,6 +28,11 @@ jobs:
       - name: Install vam.whittaker>=2.0.2
         run: |
           pip -v -v -v install vam.whittaker>=2.0.2
+          pip freeze
+      - name: Install GPy>=1.10.0
+        run: |
+          pip -v -v -v install GPy>=1.10.0
+          pip freeze
       - name: Install fusets
         run: |
           pip install .[dev]
